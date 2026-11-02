@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Hồng Hải Media Full System 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0b0f19',
+                        cardBg: '#131b2e',
+                        neonGreen: '#10b981',
+                        neonCyan: '#06b6d4',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-darkBg text-gray-100 font-sans antialiased selection:bg-neonGreen selection:text-black">
+
+    <div class="flex h-screen overflow-hidden">
+        <!-- SIDEBAR ADMIN -->
+        <aside class="w-64 bg-cardBg border-r border-gray-800 hidden md:flex flex-col justify-between">
+            <div class="p-6">
+                <div class="flex items-center space-x-3 mb-8">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-neonGreen to-neonCyan flex items-center justify-center shadow-lg shadow-neonGreen/30">
+                        <i class="fa-solid fa-shield-halved text-black font-bold text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-base font-black tracking-wider bg-gradient-to-r from-neonGreen to-neonCyan bg-clip-text text-transparent">HỒNG HẢI ADMIN</span>
+                        <span class="block text-[9px] text-gray-400 uppercase tracking-widest">Control Center 2026</span>
+                    </div>
+                </div>
+
+                <nav class="space-y-1.5 text-sm">
+                    <a href="dashboard.html" class="flex items-center space-x-3 px-4 py-3 rounded-xl bg-neonGreen/10 text-neonGreen font-bold border border-neonGreen/20">
+                        <i class="fa-solid fa-gauge w-5"></i>
+                        <span>Tổng Quan Dashboard</span>
+                    </a>
+                    <a href="products.html" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-gray-800/50 hover:text-white transition-colors">
+                        <i class="fa-solid fa-box-archive w-5"></i>
+                        <span>Quản Lý Sản Phẩm</span>
+                    </a>
+                    <a href="orders.html" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-gray-800/50 hover:text-white transition-colors">
+                        <i class="fa-solid fa-cart-shopping w-5"></i>
+                        <span>Quản Lý Đơn Hàng</span>
+                    </a>
+                    <a href="customers.html" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-gray-800/50 hover:text-white transition-colors">
+                        <i class="fa-solid fa-users w-5"></i>
+                        <span>Khách Hàng & VIP</span>
+                    </a>
+                    <a href="finance.html" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-gray-800/50 hover:text-white transition-colors">
+                        <i class="fa-solid fa-wallet w-5"></i>
+                        <span>Tài Chính & Nạp Tiền</span>
+                    </a>
+                    <a href="chatbot.html" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-gray-800/50 hover:text-white transition-colors">
+                        <i class="fa-solid fa-robot w-5"></i>
+                        <span>Quản Trị AI Chatbot</span>
+                    </a>
+                    <a href="settings.html" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-gray-800/50 hover:text-white transition-colors">
+                        <i class="fa-solid fa-gear w-5"></i>
+                        <span>Cấu Hình Hệ Thống</span>
+                    </a>
+                </nav>
+            </div>
+
+            <div class="p-6 border-t border-gray-800">
+                <a href="../index.html" class="flex items-center space-x-3 text-gray-400 hover:text-white text-sm font-semibold transition-colors">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Trở Về Trang Chủ Shop</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 flex flex-col overflow-y-auto">
+            <!-- TOPBAR ADMIN -->
+            <header class="h-20 bg-cardBg/50 border-b border-gray-800 px-8 flex items-center justify-between backdrop-blur-md sticky top-0 z-20">
+                <div>
+                    <h1 class="text-xl font-bold">Tổng Quan Hệ Thống (Dashboard)</h1>
+                    <p class="text-xs text-gray-400 mt-0.5">Chào mừng quay trở lại, Quản trị viên cấp cao Bùi Đức Long.</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-3 bg-darkBg border border-gray-800 px-4 py-2 rounded-xl">
+                        <div class="w-8 h-8 rounded-full bg-neonGreen/20 text-neonGreen font-bold flex items-center justify-center text-sm">AD</div>
+                        <div class="text-left">
+                            <span class="block text-xs font-bold">Administrator</span>
+                            <span class="block text-[10px] text-neonGreen">Full Access</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- NỘI DUNG THỐNG KÊ -->
+            <div class="p-8 space-y-8">
+                <!-- CÁC THẺ THỐNG KÊ -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-cardBg border border-gray-800 p-6 rounded-2xl relative overflow-hidden">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Tổng Doanh Thu</span>
+                            <div class="w-10 h-10 rounded-xl bg-neonGreen/10 text-neonGreen flex items-center justify-center"><i class="fa-solid fa-money-bill-trend-up"></i></div>
+                        </div>
+                        <h3 class="text-2xl font-black text-white">128,450,000 đ</h3>
+                        <span class="text-xs text-neonGreen mt-2 block font-semibold">↑ +18.4% so với tháng trước</span>
+                    </div>
+
+                    <div class="bg-cardBg border border-gray-800 p-6 rounded-2xl relative overflow-hidden">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Tổng Đơn Hàng</span>
+                            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-neonCyan flex items-center justify-center"><i class="fa-solid fa-cart-shopping"></i></div>
+                        </div>
+                        <h3 class="text-2xl font-black text-white">1,420</h3>
+                        <span class="text-xs text-neonCyan mt-2 block font-semibold">12 đơn đang chờ xử lý tự động</span>
+                    </div>
+
+                    <div class="bg-cardBg border border-gray-800 p-6 rounded-2xl relative overflow-hidden">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Khách Hàng Đang Có</span>
+                            <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center"><i class="fa-solid fa-users"></i></div>
+                        </div>
+                        <h3 class="text-2xl font-black text-white">3,850</h3>
+                        <span class="text-xs text-purple-400 mt-2 block font-semibold">45 tài khoản VIP PRO</span>
+                    </div>
+
+                    <div class="bg-cardBg border border-gray-800 p-6 rounded-2xl relative overflow-hidden">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Số Dư Ví Hệ Thống</span>
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center"><i class="fa-solid fa-wallet"></i></div>
+                        </div>
+                        <h3 class="text-2xl font-black text-white">45,200,000 đ</h3>
+                        <span class="text-xs text-amber-400 mt-2 block font-semibold">Đối soát an toàn tuyệt đối</span>
+                    </div>
+                </div>
+
+                <!-- BẢNG ĐƠN HÀNG GẦN ĐÂY -->
+                <div class="bg-cardBg border border-gray-800 rounded-2xl p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-lg font-bold">Đơn Hàng Gần Đây</h2>
+                        <a href="orders.html" class="text-xs font-bold text-neonGreen hover:underline">Xem Tất Cả →</a>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm">
+                            <thead>
+                                <tr class="border-b border-gray-800 text-gray-400 text-xs">
+                                    <th class="pb-3 font-semibold">Mã Đơn</th>
+                                    <th class="pb-3 font-semibold">Khách Hàng</th>
+                                    <th class="pb-3 font-semibold">Dịch Vụ / Sản Phẩm</th>
+                                    <th class="pb-3 font-semibold">Tổng Tiền</th>
+                                    <th class="pb-3 font-semibold">Trạng Thái</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-800/50 text-gray-300">
+                                <tr>
+                                    <td class="py-4 font-mono text-xs text-neonCyan">#HH-98241</td>
+                                    <td class="py-4">Nguyễn Văn An</td>
+                                    <td class="py-4">Tài khoản ChatGPT Plus 1 Tháng</td>
+                                    <td class="py-4 font-bold text-neonGreen">250,000 đ</td>
+                                    <td class="py-4"><span class="bg-neonGreen/10 text-neonGreen text-xs px-2.5 py-1 rounded-full font-bold">Hoàn Thành</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 font-mono text-xs text-neonCyan">#HH-98240</td>
+                                    <td class="py-4">Trần Thị Mai</td>
+                                    <td class="py-4">Buff 10,000 Followers TikTok</td>
+                                    <td class="py-4 font-bold text-neonGreen">500,000 đ</td>
+                                    <td class="py-4"><span class="bg-amber-500/10 text-amber-400 text-xs px-2.5 py-1 rounded-full font-bold">Đang Xử Lý</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 font-mono text-xs text-neonCyan">#HH-98239</td>
+                                    <td class="py-4">Lê Hoàng Long</td>
+                                    <td class="py-4">Thiết Kế Landing Page E-commerce</td>
+                                    <td class="py-4 font-bold text-neonGreen">1,500,000 đ</td>
+                                    <td class="py-4"><span class="bg-neonGreen/10 text-neonGreen text-xs px-2.5 py-1 rounded-full font-bold">Hoàn Thành</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
