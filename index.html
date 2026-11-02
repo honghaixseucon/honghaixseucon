@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Platform Store 2026 - Siêu Sàn Thương Mại Điện Tử Đa Dịch Vụ</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0a0b10',
+                        cardBg: 'rgba(18, 20, 32, 0.7)',
+                        neonCyan: '#00f2fe',
+                        neonPurple: '#4facfe',
+                        accentPink: '#ff007f'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass {
+            background: rgba(18, 20, 32, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .neon-glow {
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.25);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #ff007f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-gray-100 min-h-screen flex flex-col selection:bg-cyan-500 selection:text-black">
+
+    <!-- Top Notification Banner -->
+    <div class="bg-gradient-to-r from-cyan-600 via-indigo-600 to-pink-600 text-xs py-1.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2">
+        <i class="fa-solid fa-bolt-lightning animate-bounce"></i>
+        <span>CHÀO MỪNG NĂM 2026 - HỆ THỐNG TỰ ĐỘNG 100% HOẠT ĐỘNG ỔN ĐỊNH - HOÀN TIỀN 200% NẾU LỖI GIAO DỊCH!</span>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 glass border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo & Brand -->
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('home')">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-cyan-400 to-indigo-600 flex items-center justify-center neon-glow">
+                    <i class="fa-solid fa-cubes text-black text-2xl font-black"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-wider text-gradient">MULTI STORE</span>
+                    <span class="block text-[10px] tracking-widest text-cyan-400 font-bold">2026 ELITE PLATFORM</span>
+                </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="hidden md:flex items-center flex-1 max-w-md mx-8">
+                <div class="relative w-full">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-gray-400">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    <input type="text" placeholder="Tìm kiếm tài khoản game, dịch vụ AI, phần mềm bản quyền..." 
+                           class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-sm focus:outline-none focus:border-cyan-400 transition-all text-white placeholder-gray-500">
+                </div>
+            </div>
+
+            <!-- Nav Actions -->
+            <div class="flex items-center space-x-4">
+                <button onclick="switchTab('wallet')" class="hidden sm:flex items-center space-x-2 px-4 py-2 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/20 transition-all text-sm font-semibold">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span id="user-balance">1,500,000 đ</span>
+                </button>
+                
+                <button onclick="openCart()" class="relative p-2.5 rounded-xl glass hover:bg-white/10 transition-all text-gray-300">
+                    <i class="fa-solid fa-cart-shopping text-lg"></i>
+                    <span id="cart-badge" class="absolute -top-1 -right-1 bg-pink-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">1</span>
+                </button>
+
+                <button onclick="switchTab('admin')" class="p-2.5 rounded-xl bg-indigo-600/20 border border-indigo-500/30 text-indigo-400 hover:bg-indigo-600/30 transition-all text-sm font-semibold" title="Khu vực quản trị Admin">
+                    <i class="fa-solid fa-shield-halved text-lg"></i>
+                </button>
+
+                <!-- User Profile / Auth Button -->
+                <button onclick="switchTab('profile')" class="flex items-center space-x-2 pl-2">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 p-0.5">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100" class="w-full h-full object-cover rounded-[10px]" alt="Avatar">
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Dynamic Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- TAB 1: TRANG CHỦ (HOME) -->
+        <div id="tab-home" class="space-y-12">
+            <!-- Hero Banner -->
+            <div class="relative rounded-3xl overflow-hidden glass p-8 sm:p-12 border border-white/10 bg-gradient-to-r from-cyan-950/40 via-purple-950/40 to-black">
+                <div class="relative z-10 max-w-2xl space-y-6">
+                    <span class="px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-xs font-bold uppercase tracking-wider">
+                        Phiên bản 2026 - Tự động hóa hoàn toàn
+                    </span>
+                    <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
+                        SIÊU SÀN DỊCH VỤ <span class="text-gradient">ĐA NỀN TẢNG</span>
+                    </h1>
+                    <p class="text-gray-400 text-base sm:text-lg">
+                        Cung cấp tài khoản game cao cấp, công cụ AI bản quyền, dịch vụ mạng xã hội và tiện ích số lượng lớn với tốc độ giao hàng tự động trong 1 giây.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <button onclick="switchTab('categories')" class="px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-black font-extrabold hover:opacity-90 transition-all neon-glow flex items-center space-x-2">
+                            <span>Khám phá 30 Danh Mục</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <button onclick="switchTab('wallet')" class="px-8 py-4 rounded-xl glass hover:bg-white/10 text-white font-bold transition-all border border-white/20">
+                            Nạp Tiền Ngay
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 30 Service Categories Grid Preview -->
+            <div class="space-y-6">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+                        <i class="fa-solid fa-layer-group text-cyan-400"></i> Hệ Thống 30 Danh Mục Dịch Vụ
+                    </h2>
+                    <button onclick="switchTab('categories')" class="text-cyan-400 hover:underline text-sm font-semibold">Xem tất cả (30) →</button>
+                </div>
+                
+                <div id="category-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+                    <!-- Javascript sẽ render 30 danh mục vào đây -->
+                </div>
+            </div>
+
+            <!-- Featured Products -->
+            <div class="space-y-6">
+                <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+                    <i class="fa-solid fa-fire text-pink-500"></i> Sản Phẩm Nổi Bật Bán Chạy
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Product Card 1 -->
+                    <div class="glass rounded-2xl p-4 border border-white/10 hover:border-cyan-500/50 transition-all group">
+                        <div class="relative rounded-xl overflow-hidden mb-4 aspect-video bg-gray-900 flex items-center justify-center">
+                            <i class="fa-solid fa-gamepad text-cyan-400 text-5xl group-hover:scale-110 transition-transform"></i>
+                            <span class="absolute top-2 left-2 bg-pink-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">HOT 2026</span>
+                        </div>
+                        <span class="text-xs text-cyan-400 font-semibold">Tài khoản Free Fire</span>
+                        <h3 class="font-bold text-white text-base mt-1 line-clamp-1">Acc FF Rank Thách Đấu + Skin M14 Dạ Xoa</h3>
+                        <div class="flex items-center justify-between mt-4">
+                            <div>
+                                <span class="text-xs text-gray-400 block">Giá bán</span>
+                                <span class="text-lg font-black text-cyan-400">150,000 đ</span>
+                            </div>
+                            <button onclick="addToCart('Acc FF Rank Thách Đấu', 150000)" class="px-4 py-2 rounded-xl bg-cyan-500 text-black font-bold text-sm hover:bg-cyan-400 transition-all">
+                                Mua Ngay
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Product Card 2 -->
+                    <div class="glass rounded-2xl p-4 border border-white/10 hover:border-cyan-500/50 transition-all group">
+                        <div class="relative rounded-xl overflow-hidden mb-4 aspect-video bg-gray-900 flex items-center justify-center">
+                            <i class="fa-solid fa-robot text-purple-400 text-5xl group-hover:scale-110 transition-transform"></i>
+                            <span class="absolute top-2 left-2 bg-indigo-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">AI PRO</span>
+                        </div>
+                        <span class="text-xs text-purple-400 font-semibold">Công cụ AI</span>
+                        <h3 class="font-bold text-white text-base mt-1 line-clamp-1">Tài khoản ChatGPT Plus chính chủ 1 Tháng</h3>
+                        <div class="flex items-center justify-between mt-4">
+                            <div>
+                                <span class="text-xs text-gray-400 block">Giá bán</span>
+                                <span class="text-lg font-black text-cyan-400">280,000 đ</span>
+                            </div>
+                            <button onclick="addToCart('ChatGPT Plus 1 Tháng', 280000)" class="px-4 py-2 rounded-xl bg-cyan-500 text-black font-bold text-sm hover:bg-cyan-400 transition-all">
+                                Mua Ngay
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Product Card 3 -->
+                    <div class="glass rounded-2xl p-4 border border-white/10 hover:border-cyan-500/50 transition-all group">
+                        <div class="relative rounded-xl overflow-hidden mb-4 aspect-video bg-gray-900 flex items-center justify-center">
+                            <i class="fa-brands fa-steam text-blue-400 text-5xl group-hover:scale-110 transition-transform"></i>
+                            <span class="absolute top-2 left-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">STEAM</span>
+                        </div>
+                        <span class="text-xs text-blue-400 font-semibold">Tài khoản Steam</span>
+                        <h3 class="font-bold text-white text-base mt-1 line-clamp-1">Acc Steam Full Game AAA sẵn 50$ Wallet</h3>
+                        <div class="flex items-center justify-between mt-4">
+                            <div>
+                                <span class="text-xs text-gray-400 block">Giá bán</span>
+                                <span class="text-lg font-black text-cyan-400">450,000 đ</span>
+                            </div>
+                            <button onclick="addToCart('Acc Steam Full Game', 450000)" class="px-4 py-2 rounded-xl bg-cyan-500 text-black font-bold text-sm hover:bg-cyan-400 transition-all">
+                                Mua Ngay
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Product Card 4 -->
+                    <div class="glass rounded-2xl p-4 border border-white/10 hover:border-cyan-500/50 transition-all group">
+                        <div class="relative rounded-xl overflow-hidden mb-4 aspect-video bg-gray-900 flex items-center justify-center">
+                            <i class="fa-brands fa-tiktok text-pink-400 text-5xl group-hover:scale-110 transition-transform"></i>
+                            <span class="absolute top-2 left-2 bg-pink-500 text-white text-[10px] font-bold px-2 py-0.5 rounded">SOCIAL</span>
+                        </div>
+                        <span class="text-xs text-pink-400 font-semibold">Dịch vụ TikTok</span>
+                        <h3 class="font-bold text-white text-base mt-1 line-clamp-1">Buff 10,000 Followers TikTok Uy Tín</h3>
+                        <div class="flex items-center justify-between mt-4">
+                            <div>
+                                <span class="text-xs text-gray-400 block">Giá bán</span>
+                                <span class="text-lg font-black text-cyan-400">320,000 đ</span>
+                            </div>
+                            <button onclick="addToCart('Buff 10k Followers TikTok', 320000)" class="px-4 py-2 rounded-xl bg-cyan-500 text-black font-bold text-sm hover:bg-cyan-400 transition-all">
+                                Mua Ngay
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: DANH MỤC DỊCH VỤ (30 CATEGORIES) -->
+        <div id="tab-categories" class="hidden space-y-8">
+            <div>
+                <h1 class="text-3xl font-black text-white">Toàn Bộ 30 Danh Mục Dịch Vụ 2026</h1>
+                <p class="text-gray-400 text-sm mt-1">Lựa chọn danh mục sản phẩm và dịch vụ kỹ thuật số bạn quan tâm.</p>
+            </div>
+            <div id="full-category-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Javascript sẽ render danh sách 30 danh mục đầy đủ ở đây -->
+            </div>
+        </div>
+
+        <!-- TAB 3: VÍ & NẠP TIỀN (WALLET) -->
+        <div id="tab-wallet" class="hidden space-y-8 max-w-3xl mx-auto">
+            <div class="glass rounded-3xl p-8 border border-white/10 space-y-6">
+                <div class="flex items-center justify-between border-b border-white/10 pb-6">
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase tracking-widest font-bold">Số dư hiện tại</span>
+                        <h2 class="text-3xl sm:text-4xl font-black text-cyan-400 mt-1">1,500,000 đ</h2>
+                    </div>
+                    <div class="px-4 py-2 rounded-xl bg-purple-500/20 border border-purple-500/40 text-purple-300 font-bold text-sm">
+                        Cấp độ: Diamond VIP
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="font-bold text-white text-lg">Nạp Tiền Tự Động Qua Ngân Hàng / QR</h3>
+                    <p class="text-sm text-gray-400">Hệ thống quét mã QR tự động cộng tiền sau 3 giây từ khi chuyển khoản thành công.</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                        <button class="p-4 rounded-xl glass border border-cyan-500 bg-cyan-500/10 text-center font-bold text-white">MB Bank</button>
+                        <button class="p-4 rounded-xl glass border border-white/10 text-center font-bold text-gray-300 hover:border-white/30">Vietcombank</button>
+                        <button class="p-4 rounded-xl glass border border-white/10 text-center font-bold text-gray-300 hover:border-white/30">Binance Pay</button>
+                    </div>
+
+                    <div class="bg-black/50 p-6 rounded-2xl border border-white/10 flex flex-col items-center justify-center space-y-4">
+                        <div class="w-48 h-48 bg-white p-2 rounded-xl flex items-center justify-center">
+                            <i class="fa-solid fa-qrcode text-black text-9xl"></i>
+                        </div>
+                        <div class="text-center space-y-1">
+                            <p class="text-xs text-gray-400">Nội dung chuyển khoản chính xác:</p>
+                            <p class="text-cyan-400 font-mono font-bold text-lg bg-black/60 px-4 py-1.5 rounded-lg border border-cyan-500/30">NAP 88291 HONGHAI</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: KHU VỰC QUẢN TRỊ ADMIN -->
+        <div id="tab-admin" class="hidden space-y-8">
+            <div class="flex items-center justify-between border-b border-white/10 pb-6">
+                <div>
+                    <h1 class="text-3xl font-black text-white flex items-center gap-3">
+                        <i class="fa-solid fa-shield-halved text-indigo-500"></i> Bảng Điều Hành Quản Trị Admin
+                    </h1>
+                    <p class="text-gray-400 text-sm mt-1">Thống kê toàn bộ hoạt động kinh doanh, doanh thu và đơn hàng của hệ thống.</p>
+                </div>
+                <span class="px-4 py-1.5 rounded-xl bg-red-500/20 text-red-400 border border-red-500/30 font-bold text-xs">Admin cấp cao</span>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass rounded-2xl p-6 border border-white/10 space-y-2">
+                    <span class="text-xs text-gray-400 font-semibold uppercase">Tổng Doanh Thu</span>
+                    <h3 class="text-3xl font-black text-cyan-400">849,200,000 đ</h3>
+                    <p class="text-xs text-green-400 font-semibold">↑ +24.5% so với tháng trước</p>
+                </div>
+                <div class="glass rounded-2xl p-6 border border-white/10 space-y-2">
+                    <span class="text-xs text-gray-400 font-semibold uppercase">Tổng Khách Hàng</span>
+                    <h3 class="text-3xl font-black text-purple-400">14,820</h3>
+                    <p class="text-xs text-green-400 font-semibold">↑ +320 thành viên mới hôm nay</p>
+                </div>
+                <div class="glass rounded-2xl p-6 border border-white/10 space-y-2">
+                    <span class="text-xs text-gray-400 font-semibold uppercase">Đơn Hàng Chờ Xử Lý</span>
+                    <h3 class="text-3xl font-black text-pink-500">3</h3>
+                    <p class="text-xs text-yellow-400 font-semibold">Đang đồng bộ API nhà cung cấp</p>
+                </div>
+                <div class="glass rounded-2xl p-6 border border-white/10 space-y-2">
+                    <span class="text-xs text-gray-400 font-semibold uppercase">Số Dư Hệ Thống Ví</span>
+                    <h3 class="text-3xl font-black text-blue-400">45,120,000 đ</h3>
+                    <p class="text-xs text-gray-400 font-semibold">Đối soát tự động 24/7</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 5: HỒ SƠ CÁ NHÂN -->
+        <div id="tab-profile" class="hidden space-y-8 max-w-2xl mx-auto">
+            <div class="glass rounded-3xl p-8 border border-white/10 space-y-6">
+                <div class="flex items-center space-x-4 border-b border-white/10 pb-6">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100" class="w-16 h-16 rounded-2xl object-cover border-2 border-cyan-400">
+                    <div>
+                        <h2 class="text-2xl font-bold text-white">Nguyễn Văn Khách Hàng</h2>
+                        <p class="text-xs text-cyan-400 font-semibold mt-0.5">Thành viên Diamond VIP • ID: #202688</p>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex justify-between py-2 border-b border-white/5 text-sm">
+                        <span class="text-gray-400">Email đăng ký</span>
+                        <span class="text-white font-medium">customer2026@multistore.vn</span>
+                    </div>
+                    <div class="flex justify-between py-2 border-b border-white/5 text-sm">
+                        <span class="text-gray-400">Bảo mật 2FA</span>
+                        <span class="text-green-400 font-semibold"><i class="fa-solid fa-shield-check"></i> Đang bật</span>
+                    </div>
+                    <div class="flex justify-between py-2 border-b border-white/5 text-sm">
+                        <span class="text-gray-400">API Key cá nhân</span>
+                        <span class="text-cyan-400 font-mono text-xs bg-black/40 px-3 py-1 rounded">sk_live_2026xyz9812</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass border-t border-white/10 mt-20 py-8 text-center text-xs text-gray-500">
+        <p>© 2026 MULTI PLATFORM STORE. Hệ thống thương mại điện tử đa dịch vụ cao cấp.</p>
+    </footer>
+
+    <!-- JavaScript Application Core -->
+    <script>
+        // Danh sách 30 danh mục dịch vụ chuẩn yêu cầu
+        const categoriesData = [
+            "Tài khoản Free Fire", "Tài khoản Liên Quân Mobile", "Tài khoản PUBG Mobile", "Tài khoản Roblox", "Tài khoản Minecraft",
+            "Tài khoản Steam", "Tài khoản PlayStation", "Tài khoản Xbox", "Dịch vụ game online", "Tài khoản TikTok",
+            "Dịch vụ TikTok", "Tài khoản Facebook", "Dịch vụ Facebook", "Tài khoản Instagram", "Dịch vụ Instagram",
+            "Tài khoản YouTube", "Dịch vụ YouTube", "Telegram", "Zalo", "Threads",
+            "X (Twitter)", "Google", "Email doanh nghiệp", "Hosting và tên miền", "Thiết kế website",
+            "Công cụ AI", "Phần mềm bản quyền", "Thiết kế đồ họa", "Sản xuất video", "Gói thành viên VIP"
+        ];
+
+        // Khởi tạo render 30 danh mục ra giao diện
+        function renderCategories() {
+            const gridHome = document.getElementById('category-grid');
+            const gridFull = document.getElementById('full-category-grid');
+            
+            if(gridHome) gridHome.innerHTML = '';
+            if(gridFull) gridFull.innerHTML = '';
+
+            categoriesData.forEach((cat, index) => {
+                const iconList = ['fa-gamepad', 'fa-shield-halved', 'fa-crosshairs', 'fa-cube', 'fa-chess', 'fa-steam', 'fa-gamepad', 'fa-xbox', 'fa-wand-magic-sparkles', 'fa-video', 'fa-share-nodes', 'fa-user-group', 'fa-thumbs-up', 'fa-camera', 'fa-image', 'fa-play', 'fa-clapperboard', 'fa-paper-plane', 'fa-comments', 'fa-hashtag', 'fa-x-twitter', 'fa-google', 'fa-envelope', 'fa-server', 'fa-code', 'fa-robot', 'fa-key', 'fa-pen-nib', 'fa-film', 'fa-crown'];
+                const icon = iconList[index % iconList.length];
+
+                const itemHTML = `
+                    <div onclick="switchTab('categories')" class="glass rounded-2xl p-4 border border-white/10 hover:border-cyan-400 hover:scale-105 transition-all cursor-pointer flex flex-col items-center text-center space-y-3 group">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-black transition-all">
+                            <i class="fa-solid ${icon} text-lg"></i>
+                        </div>
+                        <span class="text-xs font-bold text-gray-200 line-clamp-2">${cat}</span>
+                    </div>
+                `;
+                
+                if(index < 10 && gridHome) gridHome.innerHTML += itemHTML;
+                if(gridFull) gridFull.innerHTML += itemHTML;
+            });
+        }
+
+        // Chuyển đổi qua lại các Tab chức năng
+        function switchTab(tabName) {
+            const tabs = ['home', 'categories', 'wallet', 'admin', 'profile'];
+            tabs.forEach(t => {
+                const el = document.getElementById(`tab-${t}`);
+                if(el) el.classList.add('hidden');
+            });
+            const activeEl = document.getElementById(`tab-${tabName}`);
+            if(activeEl) activeEl.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Giỏ hàng mẫu
+        function addToCart(productName, price) {
+            alert(`Đã thêm thành công sản phẩm: "${productName}" vào giỏ hàng!`);
+            const badge = document.getElementById('cart-badge');
+            if(badge) badge.innerText = parseInt(badge.innerText || '0') + 1;
+        }
+
+        function openCart() {
+            alert('Trang Giỏ hàng & Thanh toán tự động: Đang mở cửa sổ thanh toán qua số dư ví.');
+            switchTab('wallet');
+        }
+
+        // Chạy khởi tạo danh mục khi tải trang
+        window.onload = () => {
+            renderCategories();
+        };
+    </script>
+</body>
+</html>
